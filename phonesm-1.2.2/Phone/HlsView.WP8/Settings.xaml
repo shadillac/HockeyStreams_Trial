@@ -1,0 +1,44 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="HlsView.Settings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="Top Cheddar Hockey Videos" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="Settings..." Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Margin="12,17,10,0" Grid.RowSpan="2">
+            <Image Margin="-17,-94,-43,-51" Source="/Assets/BkGrnd.png" Opacity="0.2"/>
+            <toolkit:ListPicker Header="Location" x:Name="locationPicker" Margin="23,123,25,528" SelectionChanged="locationPicker_SelectionChanged" Loaded="locationPicker_Loaded"/>
+            <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="52,628,0,0" VerticalAlignment="Top" Click="btnSave_Click" Width="157" Height="92"/>
+            <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="234,628,0,0" VerticalAlignment="Top" Click="btnCancel_Click" Width="157" Height="92"/>
+            <Button Name="btnIP" Content="Create IP Exception" HorizontalAlignment="Left" Margin="94,436,0,0" VerticalAlignment="Top" Click="btnIP_Click_1" />
+            <TextBlock HorizontalAlignment="Left" Margin="23,344,0,0" TextWrapping="Wrap" Text="HockeyStreams.com by default only allows users to connect to their service with one IP at a time.  To change IPs youll need to update your IP Exception.   If you have problems with streaming, please use the button below." VerticalAlignment="Top" Height="92" Width="410" FontSize="16"/>
+
+
+        </Grid>
+
+    </Grid>
+
+</phone:PhoneApplicationPage>
