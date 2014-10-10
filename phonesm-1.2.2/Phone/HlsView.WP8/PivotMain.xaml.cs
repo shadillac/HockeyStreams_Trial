@@ -193,9 +193,9 @@ namespace HlsView
                 System.Threading.Thread.CurrentThread.CurrentUICulture,
                 (Teams s) => { return s.TeamName; }, true);
             teamPicker.ItemsSource = DataSource;
-            //WebClient wc = new WebClient();
-            //wc.DownloadStringCompleted += wc_DownloadStringCompletedHandler_2;
-            //wc.DownloadStringAsync(new Uri("https://api.hockeystreams.com/GetOnDemandDates?token=" + authToken));
+            WebClient wc = new WebClient();
+            wc.DownloadStringCompleted += wc_DownloadStringCompletedHandler_2;
+            wc.DownloadStringAsync(new Uri("https://api.hockeystreams.com/GetOnDemandDates?token=" + authToken));
 
 
         }
