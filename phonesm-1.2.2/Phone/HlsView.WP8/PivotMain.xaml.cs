@@ -289,6 +289,7 @@ namespace HlsView
                 int horizMargin = 0;
                 int i = 0;
                 ContentPanel.Height = 135 * o["schedule"].Count();
+                RemoveLiveContent();
 
                 foreach (JToken game in o["schedule"])
                 {
@@ -493,6 +494,7 @@ namespace HlsView
                 int horizMargin = 0;
                 int i = 0;
                 ODContentPanel.Height = 135 * o["ondemand"].Count();
+                RemoveContent();
 
                 foreach (JToken game in o["ondemand"])
                 {
@@ -573,6 +575,16 @@ namespace HlsView
             for (int child = 0; child < contentLength; child++)
             {
                 ODContentPanel.Children.RemoveAt(0);
+
+            }
+        }
+
+        private void RemoveLiveContent()
+        {
+            int contentLength = ContentPanel.Children.Count;
+            for (int child = 0; child < contentLength; child++)
+            {
+                ContentPanel.Children.RemoveAt(0);
 
             }
         }
