@@ -57,7 +57,7 @@ namespace HlsView
                     {
                         userSettings["Token"] = (string)o["token"];
                     }
-                    //ADD TOKEN TO USER STORAGE
+                    //ADD FAV TEAM TO USER STORAGE
                     try
                     {
                         userSettings.Add("FavTeam", (string)o["favteam"]);
@@ -65,6 +65,24 @@ namespace HlsView
                     catch (ArgumentException)
                     {
                         userSettings["FavTeam"] = (string)o["favteam"];
+                    }
+                    //ADD FAV TEAM TO USER STORAGE
+                    try
+                    {
+                        userSettings.Add("Username", txtUsername.Text);
+                    }
+                    catch (ArgumentException)
+                    {
+                        userSettings["Username"] = txtUsername.Text;
+                    }
+                    //ADD FAV TEAM TO USER STORAGE
+                    try
+                    {
+                        userSettings.Add("Password", pwdPassword.Password);
+                    }
+                    catch (ArgumentException)
+                    {
+                        userSettings["Password"] = pwdPassword.Password;
                     }
                     
                     //GOOD ACCOUNT - AUTHENTICATE AND NAVIGATE.

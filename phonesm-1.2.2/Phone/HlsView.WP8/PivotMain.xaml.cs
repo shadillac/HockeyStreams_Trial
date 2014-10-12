@@ -196,6 +196,7 @@ namespace HlsView
             WebClient wc = new WebClient();
             wc.DownloadStringCompleted += wc_DownloadStringCompletedHandler_2;
             wc.DownloadStringAsync(new Uri("https://api.hockeystreams.com/GetOnDemandDates?token=" + authToken));
+            
 
 
         }
@@ -219,6 +220,8 @@ namespace HlsView
             }
             HideProgressIndicator();
         }
+
+
         private void BuildLocalizedApplicationBar()
         {
             // Set the page's ApplicationBar to a new instance of ApplicationBar.
@@ -227,11 +230,27 @@ namespace HlsView
             // Create a new menu item with the localized string from AppResources.
             ApplicationBarMenuItem appbarmenuitem = new ApplicationBarMenuItem("Settings...");
             ApplicationBarMenuItem appbarmenuitem2 = new ApplicationBarMenuItem("About");
+            ApplicationBarMenuItem appbarmenuitem3 = new ApplicationBarMenuItem("Logout");
             ApplicationBar.MenuItems.Add(appbarmenuitem);
             ApplicationBar.MenuItems.Add(appbarmenuitem2);
+            ApplicationBar.MenuItems.Add(appbarmenuitem3);
             appbarmenuitem.Click += appbarmenuitem_Click;
             appbarmenuitem2.Click += appbarmenuitem2_Click;
+            appbarmenuitem3.Click += appbarmenuitem3_Click;
         }
+        void appbarmenuitem3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                userSettings.Remove("Token");
+                NavigationService.Navigate(new Uri("/Login.xaml", UriKind.Relative));
+            }
+            catch
+            {
+                NavigationService.Navigate(new Uri("/Login.xaml", UriKind.Relative));
+            }
+        }
+
         void appbarmenuitem2_Click(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/About.xaml", UriKind.Relative));

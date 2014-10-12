@@ -9,6 +9,8 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.IO.IsolatedStorage;
 using Microsoft.Phone.Tasks;
+using HlsView.Resources;
+using Newtonsoft.Json.Linq;
 
 namespace HlsView
 {
@@ -54,12 +56,51 @@ namespace HlsView
 
             try
             {
-                string authToken = (string)userSettings["Token"];
-                NavigationService.Navigate(new Uri("/PivotMain.xaml",UriKind.Relative));
+                string username = (string)userSettings["Username"];
+                string password = (string)userSettings["Password"];
+                
+
+                WebClient wc = new WebClient();
+                wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
+                wc.UploadStringCompleted +=wc_UploadStringCompleted;
+                string parameters = "username=" + username + "&password=" + password + "&key=" + AppResources.APIKey.ToString();
+                wc.UploadStringAsync(new Uri("https://api.hockeystreams.com/Login?"), "POST", parameters);
+                
+                
+
             }
             catch (KeyNotFoundException)
             {
                 NavigationService.Navigate(new Uri("/Login.xaml",UriKind.Relative));
+            }
+        }
+
+        void wc_UploadStringCompleted(object sender, UploadStringCompletedEventArgs e)
+        {
+            JObject o = new JObject();
+            try
+            {
+                o = JObject.Parse(e.Result);
+            }
+            catch (System.Reflection.TargetInvocationException)
+            {
+            }
+
+            if ((string)o["status"] == "Success")
+            {
+                if ((string)o["membership"] == "Premium")
+                {
+                    NavigationService.Navigate(new Uri("/PivotMain.xaml", UriKind.Relative));
+                }
+                else
+                {
+                    MessageBox.Show("You must have a premium account to log into HockeyStreams.com");
+                    NavigationService.Navigate(new Uri("/Login.xaml", UriKind.Relative));
+                }
+            }
+            else
+            {
+                NavigationService.Navigate(new Uri("/Login.xaml", UriKind.Relative));
             }
         }
     }
