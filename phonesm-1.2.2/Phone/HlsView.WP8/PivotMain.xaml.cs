@@ -207,23 +207,15 @@ namespace HlsView
             try
             {
                 o = JObject.Parse(e.Result);
-            }
-            catch (Exception)//System.Reflection.TargetInvocationException)
-            {
-                MessageBox.Show("No Dates found for OnDemand Videos");
-                HideProgressIndicator();
-            }
-
-            try
-            {
                 foreach (JToken date in o["dates"])
                 {
                     goodDates.Add(date.ToString());
                 }
             }
-            catch (Exception)
+            catch (Exception)//System.Reflection.TargetInvocationException)
             {
                 MessageBox.Show("No Dates found for OnDemand Videos");
+                HideProgressIndicator();
             }
             
             HideProgressIndicator();
