@@ -90,7 +90,17 @@ namespace HlsView
             {
                 if ((string)o["membership"] == "Premium")
                 {
+                    //ADD TOKEN TO USER STORAGE
+                    try
+                    {
+                        userSettings.Add("Token", (string)o["token"]);
+                    }
+                    catch (ArgumentException)
+                    {
+                        userSettings["Token"] = (string)o["token"];
+                    }
                     NavigationService.Navigate(new Uri("/PivotMain.xaml", UriKind.Relative));
+
                 }
                 else
                 {
