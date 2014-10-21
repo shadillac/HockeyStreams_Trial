@@ -79,7 +79,7 @@
                     <CheckBox x:Name="chkTeam" Content="" HorizontalAlignment="Left" Margin="-8,-113,0,0" VerticalAlignment="Top" Width="58" Checked="chkTeam_Checked" Unchecked="chkTeam_Unchecked"/>
                     <Button x:Name="btnTeam" Content="" HorizontalAlignment="Right" Margin="0,-112,0,0" VerticalAlignment="Top" Width="425" Height="72" Click="btnTeam_Click"/>
 
-                    <ScrollViewer Margin="0,-40,-12,33">
+                    <ScrollViewer Margin="0,-40,-12,73">
                         <Grid x:Name="ODContentPanel" HorizontalAlignment="Left" Height="346" VerticalAlignment="Top" Width="468" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Loaded="ODContentPanel_Loaded"/>
 
                     </ScrollViewer>
