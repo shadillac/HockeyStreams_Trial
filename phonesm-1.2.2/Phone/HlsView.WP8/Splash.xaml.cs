@@ -33,7 +33,7 @@ namespace HlsView
                 userSettings["TrialCount"] = trialCount;
                 if (trialCount.ToString().EndsWith("0"))
                 {
-                    MessageBoxResult result = MessageBox.Show("Thanks for using the trial version of Top Cheddar Hockey Streams.  Would you like to upgrade to the full version and remove all these ads?","Upgrade from Trial?",MessageBoxButton.OKCancel);
+                    MessageBoxResult result = MessageBox.Show("Thanks for using the trial version of Top Cheddar Hockey Streams.  Would you like to upgrade to the full version, be able to view videos in Full Screen mode and remove all these ads","Upgrade from Trial?",MessageBoxButton.OKCancel);
                     if (result == MessageBoxResult.OK)
                     {
                         WebBrowserTask webBrowserTask = new WebBrowserTask();

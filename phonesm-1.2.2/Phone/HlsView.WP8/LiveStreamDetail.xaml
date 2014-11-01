@@ -35,9 +35,9 @@
                 <TextBlock Name="awayScore" HorizontalAlignment="Left" Margin="74,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="89" Width="90" FontSize="72" TextAlignment="Center"/>
                 <TextBlock Name="homeScore" HorizontalAlignment="Left" Margin="315,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="89" Width="90" FontSize="72" TextAlignment="Center"/>
                 <TextBlock x:Name="txtGameTime" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="315"/>
-                <TextBlock Text="Away Score" HorizontalAlignment="Left" Margin="28,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Height="36" TextAlignment="Center"/>
-                <TextBlock Text="Home Score" HorizontalAlignment="Left" Margin="265,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Height="36" TextAlignment="Center"/>
-
+                <TextBlock Visibility="Collapsed" Name="tbAwayScore" Text="Away Score" HorizontalAlignment="Left" Margin="28,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Height="36" TextAlignment="Center"/>
+                <TextBlock Visibility="Collapsed" Name="tbHomeScore" Text="Home Score" HorizontalAlignment="Left" Margin="265,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Height="36" TextAlignment="Center"/>
+                <TextBlock Visibility="Collapsed" Name="tbHiddenInfo" HorizontalAlignment="Left" Margin="28,86,0,0" TextWrapping="Wrap" Text="Scores Hidden.  See Settings to Unhide." VerticalAlignment="Top" Height="116" Width="426" FontSize="36" TextAlignment="Center" Foreground="#FFF5EB0C"/>
             </Grid>
         </ScrollViewer>
         <UI:AdControl  ApplicationId="b45a6265-5c8d-487b-aab0-8b9a4efd4ec9" AdUnitId="191990" HorizontalAlignment="Left" Height="80" Margin="0,688,0,0" VerticalAlignment="Top" Width="480" Grid.Row="1"/>

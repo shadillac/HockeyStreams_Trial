@@ -65,6 +65,23 @@ namespace HlsView
                     locationPicker.SelectedItem = "North America - Central";
                 }
             }
+
+            try
+            {
+                string scores = (string)userSettings["HideScores"];
+                if (scores == "1")
+                {
+                    chkHideScores.IsChecked = true;
+                }
+                else
+                {
+                    chkHideScores.IsChecked = false;
+                }
+            }
+            catch
+            {
+                chkHideScores.IsChecked = false;
+            }
            
 
         }
@@ -78,6 +95,29 @@ namespace HlsView
             catch (ArgumentException)
             {
                 userSettings["Location"] = locationPicker.SelectedItem;
+            }
+
+            try
+            {
+                if (chkHideScores.IsChecked == true)
+                {
+                    userSettings.Add("HideScores", "1");
+                }
+                else
+                {
+                    userSettings.Add("HideScores", "0");
+                }
+            }
+            catch (Exception)
+            {
+                if (chkHideScores.IsChecked == true)
+                {
+                    userSettings["HideScores"] = "1";
+                }
+                else
+                {
+                    userSettings["HideScores"] = "0";
+                }
             }
 
             NavigationService.GoBack();
